@@ -7,10 +7,6 @@ import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
 
 const NavbarHome = () => {
 
-
-    //console.log(dataNavHome.length);
-    
-
   return (
     <div className='flex h-full w-full  px-2 border-b bg-colorNavbar group pr-14 '>
         <header className='w-4/5 h-full ml-10 grid items-center pl-4 text-lg   hover:drop-shadow-2xl '>

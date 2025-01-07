@@ -1,5 +1,6 @@
+import { IGetData2 } from "@/app/Interfaces/IFetch"
 
-export const postData2 = async({ruta2, data2})=>{
+export const postData2 = async({ruta2, data2}:IGetData2)=>{
     try {
         const apiUrl = `http://localhost:3000/api/${ruta2}`
 

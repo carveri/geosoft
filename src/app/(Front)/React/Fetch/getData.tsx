@@ -1,7 +1,6 @@
+import { IGet } from "@/app/Interfaces/IFetch"
 
-export const getData = async({ruta})=>{
-    //console.log('ruta:', ruta);
-    
+export const getData = async({ruta}:IGet)=>{
     try {
         const apiUrl = `http://localhost:3000/api/${ruta}`
 

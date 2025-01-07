@@ -2,17 +2,17 @@
 
 import { postData } from "@/app/(Front)/React/Fetch/postData";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Formulario = () => {
 
+  const router = useRouter()
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
   const [edad, setEdad] = useState(0)
 
-  const router = useRouter()
 
-  const handleChangeInput =(e)=>{
+  const handleChangeInput =(e:React.ChangeEvent<HTMLInputElement>)=>{
     if(e.target.name === 'nombre'){
       setNombre(e.target.value)
     }
@@ -28,19 +28,25 @@ const Formulario = () => {
     }
   }
 
-  const handleSubmitForm =(e)=>{
+  const handleClickFormulario =(e:React.FormEvent<HTMLFormElement> | any)=>{
     e.preventDefault()
-    console.log(nombre, apellido, edad);
-    const data ={nombre, apellido, edad}
-    const ruta = 'usuario'
-    postData({data, ruta})
+    if(e.target.name === 'enviar'){
+      const data ={nombre, apellido, edad}
+      const ruta = 'usuario'
+      postData({data, ruta})
+      
+      router.push('/dashboard/resultado')
+    }
+    else if(e.target.name === 'ver'){
+      router.push('/dashboard/resultado')
+    }
+    else {console.log('No se encontro el boton')}
     
-    router.push('/dashboard/resultado')
   }
 
   return (
     <div className='w-full h-full grid place-items-center text-tamañoLetra'>
-      <form onSubmit={handleSubmitForm} className='w-[400px] h-[550px]  shadow-2xl'>
+      <form  className='w-[400px] h-[550px]  shadow-2xl'>
         <header className='w-full h-28 text-base grid place-content-center text-violet-500 font-semibold'>
           <h1>Formulario</h1>
         </header>
@@ -56,9 +62,12 @@ const Formulario = () => {
           <label className="text-violet-500 font-semibold">Edad</label>
           <input name="edad" onChange={handleChangeInput} className='h-12 pl-3 border border-gray-200 rounded' placeholder='30' type="number" />
         </div>
-        <div  className='w-full h-16 px-5 py-1'>
-          <button className='w-full h-full bg-violet-400 mt-10 text-white font-semibold rounded hover:shadow-lg'>
+        <div  className='w-full flex h-14 px-5 py-1'>
+          <button name="enviar" onClick={handleClickFormulario} className='w-[85%] h-full bg-violet-500 mt-10 text-white font-semibold rounded hover:shadow-lg mr-1'>
             Enviar
+          </button>
+          <button name="ver" onClick={handleClickFormulario} className='w-[15%] h-full bg-sky-400 mt-10 text-white font-semibold rounded hover:shadow-lg'>
+            Ver
           </button>
         </div>
       </form>

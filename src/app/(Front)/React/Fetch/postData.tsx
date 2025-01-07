@@ -1,5 +1,11 @@
 
+
+
 export const postData = async({ruta, data})=>{
+
+    //const router = useRouter()
+
+
     try {
         const apiUrl = `http://localhost:3000/api/${ruta}`
 
@@ -8,8 +14,11 @@ export const postData = async({ruta, data})=>{
             body: JSON.stringify(data)
         })
         const desjson = await res.json()
+        
         return desjson
+        
     } catch (error) {
         return error
     }
+    
 }

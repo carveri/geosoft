@@ -38,7 +38,7 @@ const page = () => {
           </article>
           <article className='w-[95%] h-[15%] grid grid-cols-2 place-items-center gap-x-4 py-3 text-tamañoLetra'>
             <button onClick={()=>router.push('/dashboard/formulario')} className="rounded w-full h-full bg-colorTextoAceptada text-colorTextoBoton font-semibold">Enter</button>
-            <button className="rounded w-full h-full bg-colorSidebar text-colorTextoBoton font-semibold">Pluggins</button>
+            <button className="rounded w-full h-full bg-violet-500 text-colorTextoBoton font-semibold">Pluggins</button>
           </article>
         </div>
       </section>

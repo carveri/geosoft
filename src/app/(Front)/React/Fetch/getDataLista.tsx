@@ -1,11 +1,6 @@
+import { IGetDataLista } from "@/app/Interfaces/IFetch"
 
-
-export const getDataLista = async({ruta, url})=>{
-    // console.log('ruta en el gettt:', ruta);
-    // console.log('url en el geett:', url);
-    
-    
-    
+export const getDataLista = async({ruta, url}:IGetDataLista)=>{
     try {
         const apiUrl = `http://localhost:3000/api/${ruta}/${url}`
 

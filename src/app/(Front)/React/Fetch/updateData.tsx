@@ -1,5 +1,6 @@
+import { IUpdateData } from "@/app/Interfaces/IFetch"
 
-export const updateData = async({ruta, id, data})=>{
+export const updateData = async({ruta, id, data}:IUpdateData)=>{
     try {
         const apiUrl = `http://localhost:3000/api/${ruta}/${id}`
 
