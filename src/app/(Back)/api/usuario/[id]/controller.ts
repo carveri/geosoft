@@ -4,7 +4,7 @@ import prisma from "@/libs/prisma"
 class UsuarioDetalle {
     
     // metodo get
-    getUsuarioDetalle = async(req:Request, {params}:IParams)=>{
+    getUsuarioDetalle = async({params}:IParams)=>{
         const {id} = await params
         const getOneUsuario = await prisma.usuario.findFirst({
             where:{
@@ -20,7 +20,7 @@ class UsuarioDetalle {
     // metodo put
     putUsuario = async(req:Request, {params}:IParams)=>{
         const {id} = await params
-        const {nombre, apellido, edad, cargoId} = await req.json()
+        const {nombre, apellido, edad} = await req.json()
         const updatedUsuario = await prisma.usuario.update({
             where:{
                 id:id
@@ -36,7 +36,7 @@ class UsuarioDetalle {
     }
 
     // metodo delete
-    deleteUsuario = async(req:Request, {params}:IParams)=>{
+    deleteUsuario = async({params}:IParams)=>{
         const {id} = await params
         const deletedUsuario = await prisma.usuario.delete({
             where:{

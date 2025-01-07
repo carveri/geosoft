@@ -4,9 +4,9 @@ import { IParams } from "@/app/Interfaces/IBack"
 
 
 // ruta get one
-export const GET = async(req:Request, {params}:IParams)=>{
+export const GET = async({params}:IParams)=>{
     try {
-        return NextResponse.json(await usuarioDetalle1.getUsuarioDetalle(req, {params}))
+        return NextResponse.json(await usuarioDetalle1.getUsuarioDetalle({params}))
     } catch (error) {
         return NextResponse.json(error)
     }
@@ -23,9 +23,9 @@ export const PUT = async(req:Request, {params}:IParams)=>{
 
 
 // ruta delete
-export const DELETE = async(req:Request, {params}:IParams)=>{
+export const DELETE = async({params}:IParams)=>{
     try {
-        return NextResponse.json(await usuarioDetalle1.deleteUsuario(req, {params}))
+        return NextResponse.json(await usuarioDetalle1.deleteUsuario({params}))
     } catch (error) {
         return NextResponse.json(error)
     }
