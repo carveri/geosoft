@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { usuarioDetalle1 } from "./controller"
 import { IParams } from "@/app/Interfaces/IBack"
 
@@ -13,7 +13,7 @@ export const GET = async({params}:IParams)=>{
 }
 
 // ruta put
-export const PUT = async(req:Request, {params}:IParams)=>{
+export const PUT = async(req:Request | NextRequest, {params}:IParams)=>{
     try {
         return NextResponse.json(await usuarioDetalle1.putUsuario(req, {params}))
     } catch (error) {

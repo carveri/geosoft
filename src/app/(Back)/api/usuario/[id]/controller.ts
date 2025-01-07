@@ -1,5 +1,6 @@
 import { IParams } from "@/app/Interfaces/IBack"
 import prisma from "@/libs/prisma"
+import { NextRequest } from "next/server"
 
 class UsuarioDetalle {
     
@@ -18,7 +19,7 @@ class UsuarioDetalle {
     }
 
     // metodo put
-    putUsuario = async(req:Request, {params}:IParams)=>{
+    putUsuario = async(req:Request | NextRequest, {params}:IParams)=>{
         const {id} = await params
         const {nombre, apellido, edad} = await req.json()
         const updatedUsuario = await prisma.usuario.update({
